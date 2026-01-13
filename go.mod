@@ -16,6 +16,7 @@ require (
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/dgraph-io/ristretto/v2 v2.3.0 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
+	github.com/google/uuid v1.6.0
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.9 // indirect
 	github.com/zmb3/spotify/v2 v2.4.3

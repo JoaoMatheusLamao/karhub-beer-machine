@@ -9,6 +9,8 @@ import (
 	"karhub-beer-machine/internal/application/beer"
 	domain "karhub-beer-machine/internal/domain/beer"
 	"karhub-beer-machine/internal/interfaces/http/dto"
+
+	"github.com/google/uuid"
 )
 
 type BeerHandler struct {
@@ -47,7 +49,7 @@ func (h *BeerHandler) Create(w http.ResponseWriter, r *http.Request) {
 	}
 
 	err := h.createUC.Execute(beer.CreateBeerStyleInput{
-		ID:      req.ID,
+		ID:      uuid.New().String(),
 		Name:    req.Name,
 		MinTemp: req.MinTemp,
 		MaxTemp: req.MaxTemp,
