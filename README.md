@@ -42,36 +42,6 @@ Given an input temperature **T**:
 
 This rule lives in the **domain layer** and is fully unit tested.
 
----
-
-## 🏗 Architecture
-
-The project follows **Clean Architecture** with clear separation of responsibilities:
-
-```
-cmd/
-  api/        -> HTTP entrypoint
-  cli/        -> CLI entrypoint (Cobra)
-internal/
-  domain/     -> Entities, business rules, repository interfaces
-  application -> Use cases (CRUD + best beer selection)
-  interfaces/ -> HTTP handlers and routes
-  infrastructure/
-    persistence/
-      memory/ -> Ristretto-based in-memory repository
-```
-
-### Dependency rule
-
-```
-interfaces → application → domain
-infrastructure → application → domain
-```
-
-The domain is completely independent of frameworks, HTTP, database, or external APIs.
-
----
-
 ## 🔐 Environment Variables
 
 The application uses environment variables for configuration.
@@ -312,19 +282,6 @@ The cache is implemented using the **Decorator Pattern**, wrapping the
 * No business logic in HTTP handlers
 * CLI reuses application use cases
 * Composition root in `main.go`
-
----
-
-## 🐳 Running with Docker
-
-The project includes a multi-stage Dockerfile and a docker-compose setup.
-
-### Start the API
-
-```bash
-docker compose up --build
-docker compose run --rm api /app/cli seed
-```
 
 ---
 
